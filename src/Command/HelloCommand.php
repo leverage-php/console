@@ -6,11 +6,21 @@ namespace Leverage\CommandRunner\Command;
 
 class HelloCommand
 {
+    private const NAME = 'name';
+
     private const SUCCESS = 0;
 
-    public function __invoke(): int
+    public function configure(): array
     {
-        echo "Hello World\n";
+        return [
+            self::NAME,
+        ];
+    }
+
+    public function __invoke(
+        array $args
+    ): int {
+        echo "Hello {$args[self::NAME]}\n";
         return self::SUCCESS;
     }
 }

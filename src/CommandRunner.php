@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Leverage\CommandRunner;
 
 use Exception;
+use Leverage\CommandRunner\Exception\UsageException;
 
 class CommandRunner
 {
@@ -33,6 +34,19 @@ class CommandRunner
 
         $class = $this->commands[$name];
         $command = new $class;
-        return $command();
+
+        $args = array_slice($args, 2);
+        $argNames = $command->configure();
+
+        if (count($args) != count($argNames)) {
+            throw new UsageException($name, $argNames);
+        }
+
+        $argMap = [];
+        for ($i = 0; $i < count($args); ++$i) {
+            $argMap[$argNames[$i]] = $args[$i];
+        }
+
+        return $command($argMap);
     }
 }
