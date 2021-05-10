@@ -27,7 +27,8 @@ class CommandRunner
             throw new Exception('No command specified');
         }
 
-        $command = $this->getCommand($args[1]);
+        $name = $args[1];
+        $command = $this->getCommand($name);
 
         $args = array_slice($args, 2);
         $argNames = $command->configure();
