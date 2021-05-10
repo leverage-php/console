@@ -6,6 +6,7 @@ namespace Leverage\CommandRunner;
 
 use Exception;
 use Leverage\CommandRunner\Exception\UsageException;
+use Leverage\CommandRunner\Interfaces\CommandInterface;
 
 class CommandRunner
 {
@@ -26,14 +27,7 @@ class CommandRunner
             throw new Exception('No command specified');
         }
 
-        $name = $args[1];
-
-        if (!array_key_exists($name, $this->commands)) {
-            throw new Exception("Unknown command {$name}");
-        }
-
-        $class = $this->commands[$name];
-        $command = new $class;
+        $command = $this->getCommand($args[1]);
 
         $args = array_slice($args, 2);
         $argNames = $command->configure();
@@ -48,5 +42,24 @@ class CommandRunner
         }
 
         return $command($argMap);
+    }
+
+    private function getCommand(
+        string $name
+    ): CommandInterface {
+        $parts = explode(':', $name);
+
+        $lookup = $this->commands;
+        while ($parts) {
+            $part = array_shift($parts);
+
+            if (!array_key_exists($part, $lookup)) {
+                throw new Exception("Unknown command {$name}");
+            }
+
+            $lookup = $lookup[$part];
+        }
+
+        return new $lookup;
     }
 }

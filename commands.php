@@ -1,5 +1,10 @@
 <?php
 
+use Leverage\CommandRunner\Command;
+
 return [
-    'hello' => Leverage\CommandRunner\Command\HelloCommand::class,
+    'foo' => [
+        'bar' => Command\FooBarCommand::class,
+    ],
+    'hello' => Command\HelloCommand::class,
 ];
