@@ -7,5 +7,7 @@ namespace Leverage\CommandRunner\Interfaces;
 interface CommandInterface
 {
     public function configure(): array;
-    public function run(): int;
+    public function __invoke(
+        array $args
+    ): int;
 }

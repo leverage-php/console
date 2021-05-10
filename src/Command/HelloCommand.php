@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Leverage\CommandRunner\Command;
 
-class HelloCommand
+use Leverage\CommandRunner\Interfaces\CommandInterface;
+
+class HelloCommand implements CommandInterface
 {
     private const NAME = 'name';
 
