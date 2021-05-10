@@ -1,6 +1,14 @@
 version: '3.5'
  
 services:
+  composer:
+    build:
+      context: .
+    entrypoint: composer
+    user: ${UID}:${GID}
+    volumes:
+      - .:/app
+
   php:
     build:
       context: .

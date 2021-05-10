@@ -1,0 +1,14 @@
+{
+    "name": "leverage-php/command-runner",
+    "description": "A simple PHP command runner.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Fletcher",
+            "email": "andy@prestigedigital.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
