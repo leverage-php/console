@@ -31,3 +31,11 @@ services:
     user: ${UID}:${GID}
     volumes:
       - .:/app
+
+  runner:
+    build:
+      context: .
+    entrypoint: ./bin/runner
+    user: ${UID}:${GID}
+    volumes:
+      - .:/app
