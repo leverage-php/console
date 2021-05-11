@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Leverage\CommandRunner;
 
 use Exception;
+use Leverage\CommandRunner\Exception\CommandRunnerException;
 use Leverage\CommandRunner\Exception\UsageException;
 use Leverage\CommandRunner\Interfaces\CommandInterface;
 
@@ -24,7 +25,7 @@ class CommandRunner
         array $args
     ): int {
         if (count($args) < 2) {
-            throw new Exception('No command specified');
+            throw new CommandRunnerException('No command specified');
         }
 
         $name = $args[1];
@@ -55,7 +56,7 @@ class CommandRunner
             $part = array_shift($parts);
 
             if (!array_key_exists($part, $lookup)) {
-                throw new Exception("Unknown command {$name}");
+                throw new CommandRunnerException("Unknown command {$name}");
             }
 
             $lookup = $lookup[$part];
