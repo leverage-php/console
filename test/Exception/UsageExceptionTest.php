@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Test\Exception;
 
-use Leverage\CommandRunner\Exception\UsageException;
+use Leverage\Console\Exception\UsageException;
 use PHPUnit\Framework\TestCase;
 
 class UsageExceptionTest extends TestCase

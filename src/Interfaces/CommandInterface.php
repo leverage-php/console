@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Leverage\CommandRunner\Interfaces;
+namespace Leverage\Console\Interfaces;
 
 interface CommandInterface
 {

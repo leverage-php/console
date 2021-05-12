@@ -1,6 +1,6 @@
 <?php
 
-use Leverage\CommandRunner\Command;
+use Leverage\Console\Command;
 
 return [
     'foo' => [

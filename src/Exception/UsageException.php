@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Leverage\CommandRunner\Exception;
+namespace Leverage\Console\Exception;
 
-class UsageException extends CommandRunnerException
+class UsageException extends ConsoleException
 {
     public function __construct(
         string $command,

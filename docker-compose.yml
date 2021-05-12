@@ -9,6 +9,14 @@ services:
     volumes:
       - .:/app
 
+  console:
+    build:
+      context: .
+    entrypoint: ./bin/console
+    user: ${UID}:${GID}
+    volumes:
+      - .:/app
+
   php:
     build:
       context: .
@@ -28,14 +36,6 @@ services:
     build:
       context: .
     entrypoint: ./vendor/bin/phpunit
-    user: ${UID}:${GID}
-    volumes:
-      - .:/app
-
-  runner:
-    build:
-      context: .
-    entrypoint: ./bin/runner
     user: ${UID}:${GID}
     volumes:
       - .:/app

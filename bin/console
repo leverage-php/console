@@ -5,8 +5,8 @@ declare(strict_types=1);
 
 require_once 'vendor/autoload.php';
 
-use Leverage\CommandRunner\CommandRunner;
-use Leverage\CommandRunner\Exception\CommandRunnerException;
+use Leverage\Console\Console;
+use Leverage\Console\Exception\ConsoleException;
 
 if (!file_exists('commands.php')) {
     echo "You must define your commands in commands.php\n";
@@ -15,12 +15,12 @@ if (!file_exists('commands.php')) {
 
 $commands = require 'commands.php';
 
-$runner = (new CommandRunner)
+$runner = (new Console)
     ->registerCommands($commands)
 ;
 
 try {
     exit($runner->run($argv));
-} catch (CommandRunnerException $ex) {
+} catch (ConsoleException $ex) {
     echo "{$ex->getMessage()}\n";
 }

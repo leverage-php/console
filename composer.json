@@ -1,6 +1,6 @@
 {
-    "name": "leverage-php/command-runner",
-    "description": "A simple PHP command runner.",
+    "name": "leverage-php/console",
+    "description": "A simple PHP console.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Leverage\\CommandRunner\\": "src/"
+            "Leverage\\Console\\": "src/"
         }
     },
     "require-dev": {

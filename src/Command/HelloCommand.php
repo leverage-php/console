@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Leverage\CommandRunner\Command;
+namespace Leverage\Console\Command;
 
-use Leverage\CommandRunner\Interfaces\CommandInterface;
+use Leverage\Console\Interfaces\CommandInterface;
 
 class HelloCommand implements CommandInterface
 {
